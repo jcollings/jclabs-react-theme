@@ -1,0 +1,37 @@
+{
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    "service": "php",
+    "workspaceFolder": "/var/www/html",
+    "extensions": [
+        "felixfbecker.php-debug",
+        "bmewburn.vscode-intelephense-client",
+        "esbenp.prettier-vscode",
+        "jawandarajbir.react-vscode-extension-pack",
+        "neilbrayfield.php-docblocker",
+        "gruntfuggly.todo-tree"
+    ],
+    "settings": {
+        "editor.formatOnSave": true,
+        "eslint.packageManager": "yarn",
+        "eslint.alwaysShowStatus": true,
+        "npm.includeDirectories": [
+            "wp-content/plugins/importwp"
+        ],
+        "npm.useRootDirectory": false,
+        "npm.bin": "yarn",
+        "npm.runInTerminal": true,
+        "prettier.singleQuote": true,
+        "editor.fontLigatures": true,
+        "editor.fontFamily": "Fira Code Light",
+        "editor.fontSize": 12,
+        "todo-tree.highlights.defaultHighlight": {
+            "type": "tag",
+            "foreground": "white",
+            "background": "#2bda2b",
+            "opacity": 50,
+            "iconColour": "#2bda2b"
+        }
+    }
+}

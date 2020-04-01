@@ -1,0 +1,50 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - ".docker/data/mysql:/var/lib/mysql"
+    command: "--max_allowed_packet=500M"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wp_user
+      MYSQL_PASSWORD: pass
+    expose:
+      - '3306'
+    ports:
+      - "3306:3306"
+  mailcatcher:
+    build: .docker/mailcatcher
+    volumes:
+      - ".docker/data/mailcatcher:/data"
+    ports:
+      - "1025:1025"
+      - "1080:1080"
+  php:
+    build:
+      context: .docker/wordpress
+    depends_on:
+      - db
+    links:
+      - db
+    volumes:
+      - "./src/01-jclabs-react-theme:/var/www/html/wp-content/themes/jclabs-react-theme"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "9000:9000"
+    expose:
+      - "9000"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wp_user
+      WORDPRESS_DB_PASSWORD: pass
+  adminer:
+    build: .docker/adminer
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+        - 8081:8080

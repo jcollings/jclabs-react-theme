@@ -1,0 +1,6 @@
+.docker/data/
+node_modules/
+vendor/
+dist/
+yarn.lock
+package-lock.json
