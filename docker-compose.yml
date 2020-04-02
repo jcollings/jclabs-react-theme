@@ -29,7 +29,8 @@ services:
     links:
       - db
     volumes:
-      - "./src/01-jclabs-react-theme:/var/www/html/wp-content/themes/jclabs-react-theme"
+      # - "./src/01-jclabs-react-theme:/var/www/html/wp-content/themes/jclabs-react-theme"
+      - "./src/02-jclabs-react-theme:/var/www/html/wp-content/themes/jclabs-react-theme"
     ports:
       - "80:80"
       - "443:443"
