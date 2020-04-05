@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Archive from './Archive/Archive';
 import Single from './Single/Single';
 import './App.scss';
